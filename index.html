@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Code Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer>
+        function saveCode() {
+            const codeInput = document.getElementById('codeInput').value.trim();
+            if (!codeInput) {
+                alert('Please enter some Tailwind CSS code.');
+                return;
+            }
+            const codeList = document.getElementById('codeList');
+            const newCode = document.createElement('div');
+            newCode.className = "bg-gray-100 p-4 rounded-lg shadow mb-4";
+            newCode.innerHTML = `<pre class="whitespace-pre-wrap">${codeInput}</pre>`;
+            codeList.appendChild(newCode);
+            document.getElementById('codeInput').value = '';
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Tailwind Code Library</h1>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8">Store Your Tailwind CSS Code Snippets</h2>
+            <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-8">
+                <label for="codeInput" class="block text-gray-700 font-bold mb-2">Enter Tailwind CSS Code</label>
+                <textarea id="codeInput" class="w-full p-3 border rounded-lg" rows="5" placeholder="Enter your Tailwind CSS code here..."></textarea>
+                <button 
+                    onclick="saveCode()"
+                    class="mt-4 w-full px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">
+                    Save Code
+                </button>
+            </div>
+            <div id="codeList" class="mt-8 max-w-lg mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-500 text-white text-center py-4">
+        <p>&copy; 2025 Tailwind Code Library. All rights reserved.</p>
+    </footer>
+</body>
+</html>
